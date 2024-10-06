@@ -1,0 +1,4 @@
+---
+bases:
+  - eng-flux-ci-demo-dep.yaml
+  - eng-flux-ci-demo-svc.yaml

@@ -1,0 +1,21 @@
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: eng2024
+  namespace: kube-system
+spec:
+  acme:
+    email: james@save-it.co.uk
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      # Secret resource that will be used to store the account's private key.
+      name: letsencrypt-private-key
+    solvers:
+      - dns01:
+          azureDNS:
+            subscriptionID: a900772c-eb89-4701-9e62-1086c9c9354b
+            resourceGroupName: eng2024
+            hostedZoneName: eng.save-it.co.uk
+            # Azure Cloud Environment, default to AzurePublicCloud
+            environment: AzurePublicCloud
