@@ -19,3 +19,7 @@ spec:
                 name: eng-flux-ci-demo
                 port:
                   number: 80
+    tls:
+    - hosts:
+      - demo.eng.save-it.co.uk
+      secretName: flux-tls-demo
