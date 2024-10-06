@@ -1,0 +1,4 @@
+---
+bases:
+  - helm-repo.yaml
+  - release.yaml

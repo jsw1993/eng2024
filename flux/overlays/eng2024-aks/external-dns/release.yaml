@@ -1,0 +1,21 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: external-dns
+  namespace: kube-system
+spec:
+  interval: 5m
+  chart:
+    spec:
+      version: "6.13.4"
+  values:
+    provider: azure
+    azure:
+      resourceGroup: eng2024
+      tenantId: 16098a1a-c0e4-4cf9-8888-ecdb7ecc1216
+      subscriptionId: a900772c-eb89-4701-9e62-1086c9c9354b
+      useManagedIdentityExtension: true
+    txtOwnerId: external-dns
+    domainFilters:
+      - eng.save-it.co.uk

@@ -1,0 +1,4 @@
+---
+bases:
+  - jetstack-repo.yaml
+  - release-cert-manager.yaml

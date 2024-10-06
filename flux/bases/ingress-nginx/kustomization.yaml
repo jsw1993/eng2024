@@ -1,0 +1,5 @@
+---
+bases:
+  - helm-repo.yaml
+  - namespace.yaml
+  - release.yaml

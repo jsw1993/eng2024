@@ -1,0 +1,5 @@
+---
+resources:
+  - ../../../bases/cert-manager
+patchesStrategicMerge:
+  - release-cert-manager.yaml
