@@ -7,6 +7,7 @@ metadata:
     cert-manager.io/cluster-issuer: eng2024
 
 spec:
+    ingressClassName: nginx
     rules:
     - host: "demo.eng.save-it.co.uk"
       http:
