@@ -1,5 +1,5 @@
 ---
 resources:
-  - ../../../../bases/default/eng-flux-ci-demo
+  - ./flux/bases/default/eng-flux-ci-demo
   - eng-flux-ci-demo-ingress.yaml
 
