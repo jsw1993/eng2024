@@ -1,0 +1,41 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: eng-flux-ci-demo
+  namespace: flux-system
+spec:
+  interval: 60m0s
+  path: ./flux/overlays/cluster-a/default/eng-flux-ci-demo
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  images:
+    - name: ghcr.io/jsw1993/eng-flux-ci-demo
+      newName: ghcr.io/jsw1993/eng-flux-ci-demo
+      newTag: 2023-10-04-122112 # {"$imagepolicy": "flux-system:eng-flux-ci-demo:tag"}
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: eng-flux-ci-demo
+  namespace: flux-system
+spec:
+  image: ghcr.io/jsw1993/eng-flux-ci-demo
+  interval: 1m0s
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImagePolicy
+metadata:
+  name: eng-flux-ci-demo
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: eng-flux-ci-demo
+  filterTags:
+    pattern: '(?P<ts>\d{4}-\d{2}-\d{2}-\d{6})$'
+    extract: '$ts'
+  policy:
+    alphabetical:
+      order: asc
