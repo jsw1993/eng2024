@@ -14,7 +14,7 @@ spec:
   images:
     - name: ghcr.io/jsw1993/eng-flux-ci-demo
       newName: ghcr.io/jsw1993/eng-flux-ci-demo
-      newTag: 2023-10-04-122112 # {"$imagepolicy": "flux-system:eng-flux-ci-demo:tag"}
+      newTag: 2024-10-06-223823 # {"$imagepolicy": "flux-system:eng-flux-ci-demo:tag"}
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageRepository
