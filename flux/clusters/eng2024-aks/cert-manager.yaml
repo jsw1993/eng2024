@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 60m0s
-  path: ../../overlays/eng2024-aks/cert-manager
+  path: ./flux/overlays/eng2024-aks/cert-manager
   prune: true
   sourceRef:
     kind: GitRepository
@@ -21,7 +21,7 @@ spec:
   dependsOn:
     - name: cert-manager
   interval: 60m0s
-  path: ../../overlays/eng2024-aks/cert-manager-issuer
+  path: ./flux/overlays/eng2024-aks/cert-manager-issuer
   prune: true
   sourceRef:
     kind: GitRepository
