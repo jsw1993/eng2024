@@ -19,4 +19,4 @@ spec:
   interval: 1m0s
   update:
     strategy: Setters
-    path: ./flux/clusters/eng-2024-aks
+    path: ./flux/clusters/eng2024-aks
