@@ -46,3 +46,7 @@ addiptotfstatestorageaccount(){
 getsshkeyfromkv(){
     az keyvault secret show --name "$1" --vault-name "$2" | jq '.value' | base64 -di | tee "$3"
 }
+
+bootstrapflux(){
+     flux bootstrap github   --token-auth   --owner=jsw1993   --repository=eng2024   --branch=main   --path=flux/clusters/eng2024-aks   --personal
+}
