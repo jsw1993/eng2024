@@ -30,6 +30,8 @@ grafana:
     enabled: true
     storageClassName: azurefile-csi
     size: 1Gi
+    accessModes:
+      - ReadWriteMany
   grafana.ini:
     server:
       root_url: https://grafana.eng.save-it.co.uk
