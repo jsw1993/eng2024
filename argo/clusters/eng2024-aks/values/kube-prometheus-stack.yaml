@@ -28,10 +28,10 @@ grafana:
   persistence:
     type: pvc
     enabled: true
-    storageClassName: azurefile-csi
+    storageClassName: default
     size: 1Gi
-    accessModes:
-      - ReadWriteMany
+    # accessModes:
+    #   - ReadWriteMany
   grafana.ini:
     server:
       root_url: https://grafana.eng.save-it.co.uk
