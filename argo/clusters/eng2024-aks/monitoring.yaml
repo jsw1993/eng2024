@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: git@github.com:jsw1993/eng2024.git.git
+    - repoURL: git@github.com:jsw1993/eng2024.git
       targetRevision: main
       ref: values
     - repoURL: https://prometheus-community.github.io/helm-charts
@@ -15,7 +15,7 @@ spec:
       helm:
         releaseName: kube-prometheus-stack
         valueFiles:
-        - $values/argo/clusters/eng2024-aks/kube-prometheus-stack.yaml
+        - $values/argo/clusters/eng2024-aks/values/kube-prometheus-stack.yaml
 
   destination:
     server: "https://kubernetes.default.svc"

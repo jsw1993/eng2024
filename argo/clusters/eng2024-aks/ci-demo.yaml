@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: ssh://git@github.com:jsw1993/eng2024.git
+    repoURL: git@github.com:jsw1993/eng2024.git
     targetRevision: HEAD
     path: argo/overlays/eng2024-aks/eng-flux-ci-demo
   destination:
