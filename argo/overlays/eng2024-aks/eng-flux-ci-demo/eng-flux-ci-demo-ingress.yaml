@@ -20,5 +20,5 @@ spec:
                   number: 80
     tls:
     - hosts:
-      - demoargo.eng.save-it.co.uk
-      secretName: flux-tls-demo
+      - demo-argo.eng.save-it.co.uk
+      secretName: argo-tls-demo
