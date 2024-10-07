@@ -1,0 +1,64 @@
+defaultRules:
+  create: true
+kubeControllerManager:
+  enabled: true
+kubeScheduler:
+  enabled: true
+kubeProxy:
+  enabled: true
+alertmanager:
+  enabled: false
+grafana:
+  defaultDashboardsTimezone: browser
+  assertNoLeakedSecrets: false
+  initChownData:
+    enabled: false
+  ingress:
+    ingressClassName: nginx
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: eng2024
+      nginx.ingress.kubernetes.io/whitelist-source-range: 188.74.74.189/32
+    hosts:
+      - grafana.eng.save-it.co.uk
+    tls:
+    - hosts:
+      - grafana.eng.save-it.co.uk
+      secretName: grafana-ingress-certs
+  persistence:
+    type: pvc
+    enabled: true
+    storageClassName: azurefile-csi
+    size: 1Gi
+  grafana.ini:
+    server:
+      root_url: https://grafana.eng.save-it.co.uk
+prometheus:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+      - prometheus.eng.save-it.co.uk
+    tls:
+    - hosts:
+      - prometheus.eng.save-it.co.uk
+      secretName: prometheus-ingress-certs
+    annotations:
+      cert-manager.io/cluster-issuer: eng
+      nginx.ingress.kubernetes.io/whitelist-source-range: 192.168.42.0/24,192.168.20.0/24,172.20.0.0/24,10.42.0.0/16,88.97.45.21/32
+  prometheusSpec:
+    serviceMonitorSelectorNilUsesHelmValues: false
+    podMonitorSelectorNilUsesHelmValues: false
+    retentionSize: 9Gi
+    retention: 3d
+    NamespaceSelector:
+      any: true
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          resources:
+            requests:
+              storage: 20Gi
+          storageClassName: managed-csi
+    securityContext:
+      runAsNonRoot: false
