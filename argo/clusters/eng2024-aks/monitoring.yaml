@@ -7,7 +7,7 @@ spec:
   project: default
   sources:
     - repoURL: 'git@github.com:jsw1993/eng2024.git.git'
-      targetRevision: dev
+      targetRevision: main
       ref: values
     - repoURL: https://prometheus-community.github.io/helm-charts
       chart: kube-prometheus-stack
