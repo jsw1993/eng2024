@@ -1,0 +1,18 @@
+global:
+  domain:
+    argo.eng.save-it.co.uk
+server:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: eng2024
+      nginx.ingress.kubernetes.io/whitelist-source-range: "188.74.74.189/32"
+    tls: true
+    extraTLS:
+      - hosts:
+        - argo.eng.save-it.co.uk
+        secretName: argo-tls-demo
+configs:
+  params:
+    server.insecure: true

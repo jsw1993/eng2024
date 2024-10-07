@@ -50,3 +50,8 @@ getsshkeyfromkv(){
 bootstrapflux(){
      flux bootstrap github   --token-auth   --owner=jsw1993   --repository=eng2024   --branch=main   --path=flux/clusters/eng2024-aks   --personal
 }
+
+installargo(){
+    helm repo add argo https://argoproj.github.io/argo-helm
+    helm install argo-cd argo/argo-cd --values scripts/values/argo.yaml -n argocd --create-namespace
+}
