@@ -51,7 +51,6 @@ prometheus:
   prometheusSpec:
     serviceMonitorSelectorNilUsesHelmValues: false
     podMonitorSelectorNilUsesHelmValues: false
-    retentionSize: 10Gi
     retention: 3d
     NamespaceSelector:
       any: true
