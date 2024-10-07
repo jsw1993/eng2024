@@ -1,0 +1,4 @@
+---
+resources:
+  - ../../../bases/eng-flux-ci-demo
+  - eng-flux-ci-demo-ingress.yaml

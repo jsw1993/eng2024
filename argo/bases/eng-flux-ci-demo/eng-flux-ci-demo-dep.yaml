@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: eng-flux-ci-demo
+  name: eng-flux-ci-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eng-flux-ci-demo
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: eng-flux-ci-demo
+    spec:
+      containers:
+        - image: ghcr.io/jsw1993/eng-flux-ci-demo:2022-09-27-194104
+          name: eng-flux-ci-demo
+          resources: {}
+          ports:
+            - containerPort: 80
+              name: http
+              protocol: TCP

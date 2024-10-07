@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: eng-flux-ci-demo
+  annotations:
+    cert-manager.io/cluster-issuer: eng2024
+
+spec:
+    ingressClassName: nginx
+    rules:
+    - host: "demo-argo.eng.save-it.co.uk"
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: eng-flux-ci-demo
+                port:
+                  number: 80
+    tls:
+    - hosts:
+      - demoargo.eng.save-it.co.uk
+      secretName: flux-tls-demo

@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: guestbook
+  name: ci-demo
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    repoURL: git@github.com:jsw1993/eng2024.git
     targetRevision: HEAD
-    path: guestbook
+    path: argo/overlays/eng2024-aks/eng-flux-ci-demo
   destination:
     server: https://kubernetes.default.svc
-    namespace: guestbook
+    namespace: ci-demo-argo
   syncPolicy:
     automated:
       prune: true
